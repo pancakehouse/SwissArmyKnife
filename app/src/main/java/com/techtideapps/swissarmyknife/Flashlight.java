@@ -7,6 +7,9 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.SeekBar;
+
+import java.security.Policy;
 
 public class Flashlight extends AppCompatActivity {
 
@@ -17,6 +20,7 @@ public class Flashlight extends AppCompatActivity {
     }
 
     public boolean isFlashOn = false;
+    public boolean isStrobeOn = false;
     public Camera camera;
 
     public void flashlight(View view) {
@@ -39,4 +43,25 @@ public class Flashlight extends AppCompatActivity {
         }
     }
 
+    public void strobe(View view) throws InterruptedException {
+        //SeekBar bar = (SeekBar) findViewById(R.id.seekBar1);
+        long value = 1;
+        if(isFlashOn == true){
+            camera.stopPreview();
+            camera.release();
+        }
+        isFlashOn = false;
+        //Should be in a new thread
+        Camera.open();
+        camera.startPreview();
+        Camera.Parameters parameters = camera.getParameters();
+        while(true){
+            parameters.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
+            camera.setParameters(parameters);
+            Thread.sleep(1000 * value);
+            parameters.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
+            camera.setParameters(parameters);
+            Thread.sleep(1000 * value);
+        }
+    }
 }
