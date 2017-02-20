@@ -17,7 +17,8 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:elevation="1dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:baselineAligned="false">
 
         <Button
             android:text="Flashlight"
