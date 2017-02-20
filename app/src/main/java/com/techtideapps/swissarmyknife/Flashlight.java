@@ -44,8 +44,7 @@ public class Flashlight extends AppCompatActivity {
     }
 
     public void strobe(View view) throws InterruptedException {
-        //SeekBar bar = (SeekBar) findViewById(R.id.seekBar1);
-        long value = 1;
+        SeekBar bar = (SeekBar) findViewById(R.id.seekBar2);
         if(isFlashOn == true){
             camera.stopPreview();
             camera.release();
@@ -58,10 +57,10 @@ public class Flashlight extends AppCompatActivity {
         while(true){
             parameters.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
             camera.setParameters(parameters);
-            Thread.sleep(1000 * value);
+            Thread.sleep(500);
             parameters.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
             camera.setParameters(parameters);
-            Thread.sleep(1000 * value);
+            Thread.sleep(500);
         }
     }
 }
