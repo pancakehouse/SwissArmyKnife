@@ -17,10 +17,11 @@ public class Flashlight extends AppCompatActivity {
     }
 
     public boolean isFlashOn = false;
-    public Camera camera = Camera.open();
+    public Camera camera;
 
     public void flashlight(View view) {
         if(isFlashOn == false){
+            camera = Camera.open();
             camera.startPreview();
             Camera.Parameters p = camera.getParameters();
             p.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
@@ -29,6 +30,12 @@ public class Flashlight extends AppCompatActivity {
         if(isFlashOn == true){
             camera.stopPreview();
             camera.release();
+        }
+
+        if(isFlashOn == false){
+            isFlashOn = true;
+        } else{
+            isFlashOn = false;
         }
     }
 
