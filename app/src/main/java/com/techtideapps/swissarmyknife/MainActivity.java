@@ -19,5 +19,6 @@ public class MainActivity extends AppCompatActivity {
     public void flashlight(View view){
         Intent intent = new Intent(this, Flashlight.class);
         startActivity(intent);
+        //Test
     }
 }
