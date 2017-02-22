@@ -18,7 +18,7 @@ public class Flashlight extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flashlight);
     }
-
+    String[] morseCodeSignals = {".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "----", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."}; //A-Z TODO: Finish this array with 0-9 and create an array A-Z + 0-9
     public boolean isFlashOn = false;
     public boolean isStrobeOn = false;
     public Camera camera;
