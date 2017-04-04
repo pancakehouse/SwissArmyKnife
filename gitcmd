@@ -1,0 +1,2 @@
+git pull origin master: pull everything
+git push origin master: push everything

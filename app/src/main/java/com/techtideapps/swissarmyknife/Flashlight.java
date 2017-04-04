@@ -19,7 +19,8 @@ public class Flashlight extends AppCompatActivity {
         setContentView(R.layout.activity_flashlight);
     }
     String[] morseCodeSignals = {".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "----", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."}; //A-Z TODO: Finish this array with 0-9 and create an array A-Z + 0-9
-    public boolean isFlashOn = false;
+    string letters = "abcdefghijklmnopqrstuvwxyz"; 
+   public boolean isFlashOn = false;
     public boolean isStrobeOn = false;
     public Camera camera;
 
@@ -60,6 +61,9 @@ public class Flashlight extends AppCompatActivity {
             isStrobeOn = false;
         }
     }
+public void morse(View view){
+string text = "test"; //replace this with the text from the box
+}
 }
 
 class StrobeThread extends Thread{
